@@ -72,4 +72,14 @@ class PickupFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
+
+    /*
+        When presented with the flavor options, if the user decides to cancel their order,
+        then clear out the view model by calling sharedViewModel.resetOrder().
+        Then navigate back to the StartFragment
+     */
+    fun cancelOrder() {
+        sharedViewModel.resetOrder()
+        findNavController().navigate(R.id.action_pickupFragment_to_startFragment)
+    }
 }
